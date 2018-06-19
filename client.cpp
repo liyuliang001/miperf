@@ -30,8 +30,11 @@ int main(int argc, char** argv){
 
 	char *buf = new char[SEND_BUF_SZ];
 	for (uint64_t recvd = 0; recvd < size;){
-		ssize_t ret = client.recv_raw(buf, SEND_BUF_SZ);
-		recvd += ret;
+		ssize_t ret = client.recv_len(buf, SEND_BUF_SZ);
+		if (!ret)
+			recvd += SEND_BUF_SZ;
+		else
+			printf("recv_len error\n");
 	}
 	delete[] buf;
 
