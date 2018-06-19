@@ -30,7 +30,8 @@ int main(int argc, char** argv){
 
 	char *buf = new char[SEND_BUF_SZ];
 	for (uint64_t recvd = 0; recvd < size;){
-		ssize_t ret = client.recv_len(buf, SEND_BUF_SZ);
+		uint64_t len = min(size - recvd, SEND_BUF_SZ);
+		ssize_t ret = client.recv_len(buf, len);
 		if (!ret)
 			recvd += SEND_BUF_SZ;
 		else
