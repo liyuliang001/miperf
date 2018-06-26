@@ -30,6 +30,7 @@ public:
 			ssize_t ret = send_raw(buf, to_send);
 			sent += ret;
 		}
+		close();
 		return 0;
 	}
 };
