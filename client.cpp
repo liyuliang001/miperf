@@ -8,7 +8,7 @@
 using namespace bright_lib::tcp_socket;
 using namespace std;
 
-#define SEND_BUF_SZ 1000000lu
+#define SEND_BUF_SZ 100000lu
 
 int main(int argc, char** argv){
 	if (argc != 4){

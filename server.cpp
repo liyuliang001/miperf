@@ -9,7 +9,7 @@ using namespace bright_lib::tcp_socket;
 
 class ReceiverHandler: public ServerHandler{
 public:
-#define BUF_SZ 1000000lu
+#define BUF_SZ 100000lu
 	char buf[BUF_SZ];
 	virtual int execute(){
 		#if 0
